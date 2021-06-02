@@ -68,6 +68,14 @@ impl Contract {
         )
     }
 
+    /// Returns delegated stake to given account.
+    pub fn get_delegation_balances(&self, account_id: ValidAccountId) -> (Balance, Balance) {
+        (
+            self.delegation_balance_of(account_id),
+            self.delegation_total_supply(account_id)
+        )
+    }
+
     /// Last proposal's id.
     pub fn get_last_proposal_id(&self) -> u64 {
         self.last_proposal_id
